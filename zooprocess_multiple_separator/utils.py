@@ -74,7 +74,10 @@ def predict_mask_panoptic(image_path, model, processor, device, score_threshold=
     
     # predict panoptic masks
     with torch.no_grad():
-        outputs = model(img_tens)
+        try:
+          outputs = model(img_tens)
+        except Exception as e:
+          raise HTTPBadRequest(reason=str(e))
     results = processor.post_process_panoptic_segmentation(outputs, target_sizes=[image.size[::-1]])[0]
     panoptic_masks = results["segmentation"].cpu().numpy()
     # plt.clf(); io.imshow(panoptic_masks); plt.show()
