@@ -23,7 +23,7 @@ def _catch_error(f):
         try:
             return f(*args, **kwargs)
         except Exception as e:
-            raise HTTPBadRequest(reason=e)
+            raise HTTPBadRequest(reason=str(e))
 
     return wrap
 
