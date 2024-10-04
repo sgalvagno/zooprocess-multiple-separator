@@ -49,8 +49,8 @@ def predict_mask_panoptic(image_path, model, processor, device, score_threshold=
           each retained mask.
         scores (float): average of the scores of the retained masks.
     """
-  if model is None:
-    raise ValueError("The model was not loaded correctly.")
+    if model is None:
+      raise ValueError("The model was not loaded correctly.")
 
   
     image = Image.open(image_path)
