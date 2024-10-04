@@ -69,7 +69,7 @@ RUN git clone https://github.com/ai4os/deep-start /srv/.deep-start && \
 ENV SHELL /bin/bash
 
 # Install user app
-RUN git clone -b $branch https://github.com/ai4os-hub/zooprocess-multiple-separator && \
+RUN git clone -b $branch https://github.com/sgalvagno/zooprocess-multiple-separator && \
     cd  zooprocess-multiple-separator && \
     pip3 install --no-cache-dir -e . && \
     cd ..
